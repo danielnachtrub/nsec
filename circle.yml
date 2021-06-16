@@ -15,7 +15,6 @@ workflows:
       - opensuse15
       - ubuntu18.04
       - ubuntu20.04
-      - ubuntu21.04
       - macos10.13
       - macos10.14
       - macos10.15
@@ -290,7 +289,7 @@ jobs:
       - run:
           name: Install Prerequisites
           no_output_timeout: 2m
-          command: dnf install -q -y curl ca-certificates findutils ncurses libicu compat-openssl10
+          command: dnf install -q -y curl ca-certificates findutils ncurses libicu
       - *dotnet-install-2-1
       - *dotnet-install-3-1
       - *dotnet-install-5-0
@@ -359,32 +358,6 @@ jobs:
   ubuntu20.04:
     docker:
       - image: ubuntu:20.04
-    environment: *environment
-    steps:
-      - run:
-          name: Install Prerequisites
-          no_output_timeout: 2m
-          command: |
-            apt-get -qq update
-            apt-get -qq install --yes --no-install-recommends curl ca-certificates apt-transport-https gettext libicu66
-      - *dotnet-install-2-1
-      - *dotnet-install-3-1
-      - *dotnet-install-5-0
-      - checkout
-      - *generate-restore-graph
-      - *restore-cache
-      - *dotnet-restore
-      - *save-cache
-      - *dotnet-test-debug-5-0
-      - *dotnet-test-release-5-0
-      - *dotnet-test-debug-3-1
-      - *dotnet-test-release-3-1
-      - *dotnet-test-debug-2-1
-      - *dotnet-test-release-2-1
-
-  ubuntu21.04:
-    docker:
-      - image: ubuntu:21.04
     environment: *environment
     steps:
       - run:
