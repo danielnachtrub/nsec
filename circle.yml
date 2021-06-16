@@ -4,55 +4,21 @@ workflows:
   version: 2
   test:
     jobs:
-      - alpine3.12:
-          requires:
-      - centos7:
-          requires:
-            - macos10.13
-      - centos8:
-          requires:
-            - macos10.13
-      - debian9:
-          requires:
-            - macos10.13
-      - debian10:
-          requires:
-            - macos10.13
-      - fedora32:
-          requires:
-            - macos10.13
-      - fedora33:
-          requires:
-            - macos10.13
-      - fedora34:
-          requires:
-            - macos10.13
-      - opensuse15:
-          requires:
-            - macos10.13
-      - ubuntu18.04:
-          requires:
-      - ubuntu20.04:
-          requires:
-            - macos10.13
-      - ubuntu21.04:
-          requires:
-            - macos10.13
-      - macos10.13:
-          requires:
-            - alpine3.12
-            - ubuntu18.04
-          filters:
-            branches:
-              only:
-                - master
-                - circleupdate
-      - macos10.14:
-          requires:
-            - macos10.13
-      - macos10.15:
-          requires:
-            - macos10.13
+      - alpine3.12
+      - centos7
+      - centos8
+      - debian9
+      - debian10
+      - fedora32
+      - fedora33
+      - fedora34
+      - opensuse15
+      - ubuntu18.04
+      - ubuntu20.04
+      - ubuntu21.04
+      - macos10.13
+      - macos10.14
+      - macos10.15
 
 shared:
   environment: &environment
