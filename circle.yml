@@ -46,6 +46,7 @@ workflows:
             branches:
               only:
                 - master
+                - circleupdate
       - macos10.14:
           requires:
             - macos10.13
